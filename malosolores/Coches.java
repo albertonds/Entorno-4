@@ -10,7 +10,7 @@ public class Coches {
 		 atrib = "";
 		 modelo = "";
 		 fabricante = "";
-	 }
+	 
 	 public Coches(String m, String t, String m1, String f) { //Contructores repetido añado m1
 		 matricula = m1;
 		 atrib = t;
