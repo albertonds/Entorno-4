@@ -1,60 +1,46 @@
-package malosolores;
-
-public class Coches {
-	String matricula;
+import java.util.Vector;
+public class Pila {
+	private int tamano;
+	private Vector<Integer> pila;
+	
+	public Pila() {
+		pila = new Vector<Integer>();
+		tamano = 0;
+	}
+	
+	public boolean pilaVacia () {
+		if (tamano == 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void apilar (Integer o) {
+		pila.add(tamano, 0);
+		tamano++;
+	}
+	
+	public Integer desapilar() {
+		try {
+			if(pilaVacia()) {
+				throw new ErrorPilaVacia();
+			}
+			else {
+				return pila.get(--tamano);
+			}
+			catch(ErrorPilaVacia error) {
+				System.out.println("ERROR: la pila está vacía");
+				return null;
+			}
+	}
+	public int getNumElementos() {
+		return tamano;
 		
-	 public void Coche() {
-		 matricula = "";
-		 atrib = "";
-		 modelo = "";
-		 fabricante = "";
-	 
-	 public Coches(String m, String t, String m1, String f) { //Contructores repetido añado m1
-		 matricula = m1;
-		 atrib = t;
-		 modelo = m;
-		 fabricante = f;
-	 }
-	public String getModelo() {//Creo los getter and setter y los métodos correspondientes(A,B,C)
-		return modelo;
 	}
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
+	class ErrorPilaVacia extends Exception{
+		public ErrorPilaVacia() {
+			super();
+		}
 	}
-	public String getFabricante() {
-		return fabricante;
-	}
-	public void setFabricante(String fabricante) {
-		this.fabricante = fabricante;
-	}
-	public int metodo1() {
-		 int resultado = 0;
-		 if(atrib == "Gasolina") {
-			 resultado += 10;
-			 resultado += metodoA(modelo,fabricante);
-		 }else if (atrib == "Diesel") {
-			 resultado += 10;
-			 resultado += metodoB(modelo, fabricante);
-		 }else if (atrib == "Híbrido") {
-			 resultado += 10;
-			 resultado += metodoC(modelo,fabricante);
-		 }else {
-			 resultado +=10;
-		 }
-		 return resultado;
-		 
-	 }
-	private int metodoC(String modelo, String fabricante) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	private int metodoB(String modelo, String fabricante) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	private int metodoA(String modelo, String fabricante) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	 
+	
 }
